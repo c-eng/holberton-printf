@@ -29,18 +29,8 @@ int _printf(const char *format, ...)
 		{
 			if (argflag)
 			{
-				/* switch(format[i])
-				{
-				case 'c':
-					buffer[buffer_count] = va_arg(plist, int);
-					buffer_count += 1;
-					argflag = 0;
-					break;
-				case 's':
-					store = _stringf(va_arg(plist, void *));
-					argflag = 0;
-					break;
-					} */
+				if(format[i + 1] ==
+				/* scan struct for flags and access function */
 				for (j = 0 ; store[j] != '\0' ; j++)
 				{
 					buffer[buffer_count] = store[j];

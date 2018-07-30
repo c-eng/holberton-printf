@@ -17,11 +17,11 @@ char (*get_args_func(char *s))(char)
 		{NULL, NULL}
 	}
 
-	for (i = 0; i != NULL; i++)
+	for (i = 0; arg_t[i].args != NULL; i++)
 	{
-		if (format[i] == arg_t[i].args)
+		if (*s == *arg_t[i].args)
 		{
-			return (arg_t[k].f);
+			return (arg_t[i].f);
 		}
 	}
 }
