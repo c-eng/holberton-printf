@@ -32,6 +32,15 @@ int _strlen(char *s)
 	return (count);
 }
 
+//character buffer
+char *_charf(char *input)
+{
+	char *output = malloc(sizeof(char) + 1);
+	output[0] = input[0];
+	output[1] = '\0';
+	return (output);
+}
+
 // get size of string and push into buffer
 char *_stringf(char *input)
 {
