@@ -1,8 +1,6 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>
-
-/* added function prototypes in header files */
 #include "holberton.h"
 
 /**
@@ -29,14 +27,12 @@ size_t bufferw(int filedes, const char *buff, size_t byte)
  *
  *
  */
-
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0;
+	unsigned int i = 0, j = 0, bite_count =0;
 	va_list plist;
-	char paramstore;
-	int argflag = 0;
-	/* char *buffer = malloc(1024); */
+	int argflag = 0, buffer_count = 0;
+	char *buffer = malloc(sizeof(char) * 1024), *store;
 
 	va_start(plist, format);
 	while (format[i] != '\0')
@@ -45,31 +41,28 @@ int _printf(const char *format, ...)
 		{
 			argflag = 1;
 		}
-		else if (argflag)
-		{
-			switch(format[i])
-			{
-			case '%':
-				/* call _putchar on '%' */
-				break;
-			case 'c':
-				paramstore = va_arg(plist, int);
-				write(1, &paramstore, 1);
-				argflag = 0;
-				break;
-			case 's':
-				/*assign va_arg(plist, char *) to a temp
-				  string, then iterate through string
-				  printing each char, stop at \0 */
-				argflag = 0;
-				break;
-			}
-		}
 		else
 		{
-			write(1, &format[i], 1);
+			if (argflag)
+			{
+				switch(format[i])
+				{
+				case 'c':
+					store = _strcat(buffer, va_arg(plist, int));
+					argflag = 0;
+					break;
+				case 's':
+					store = _strcat(buffer, va_arg(plist, char *));
+					argflag = 0;
+					break;
+				}
+			}
+			else
+			{
+				write(1, &format[i], 1);
+			}
+			i++;
 		}
-		i++;
 	}
 	va_end(plist);
 	return (0);
