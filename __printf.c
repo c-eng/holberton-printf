@@ -11,7 +11,6 @@
 
 char *_stringf(char *input)
 {
-	char *output = malloc(5);
 	unsigned int i;
 
 	printf("_stringf input is %s\n", input);
@@ -28,6 +27,9 @@ char *_stringf(char *input)
 }
 
 /**
+ * _
+
+/**
  * _printf - Main body of printf
  *
  */
@@ -37,7 +39,7 @@ int _printf(const char *format, ...)
 	unsigned int i = 0, j = 0, bite_count = 0;
 	va_list plist;
 	int argflag = 0, buffer_count = 0;
-	char *buffer = malloc(sizeof(char) * 1024), *store, *store2;
+	char *buffer = malloc(sizeof(char) * 1024), *store, *store2, *indexBuff;
 
 	va_start(plist, format);
 	while (format[i] != '\0')
