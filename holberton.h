@@ -1,15 +1,20 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 
-convert format[] = {
-	{"c", _charf},
-	{"s", _stringf},
-	{NULL, NULL}
-}
+/**
+ * struct op - Struct op
+ * @s: pointer type
+ * @f: The function associated
+ */
+typedef struct args
+{
+	char *s;
+	char (*f)(void *);
+} arg_t;
 
 int _printf(const char *format, ...);
 int _strlen(char *s);
-char *_stringf(char *input);
-char *_charf(char *input);
+char *str_arg(char *input);
+char *char_arg(char *input);
 
 #endif /* HOLBERTON_H */
