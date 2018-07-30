@@ -2,6 +2,9 @@
 #include <stddef.h>
 #include <unistd.h>
 
+/* added function prototypes in header files */
+#include "holberton.h"
+
 /**
  * bufferw - buffer write
  * @filedes: output stream: 1 for stdout

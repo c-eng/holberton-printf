@@ -1,7 +1,9 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "holberton.h"
 
+//print out string function
 void _putchar(c)
 {
 	return (write(1, &c, 1));
@@ -18,19 +20,28 @@ void _printstr(char *str)
 	return (i);
 }
 
-
-int _printf(const char *format)
+// calculate length of string
+int _strlen(char *s)
 {
-	int j = 0;
+	int count = 0;
 
-	while (format && format[j])
+	while (*(s + count) != '\0')
 	{
-		_putchar(format[j]);
-		j++;
+		count++;
 	}
+	return (count);
 }
 
-void main()
+// get size of string and push into buffer
+char *_stringf(char *input)
 {
-	_printf("Hello");
+	char *output = malloc(_strlen(input) + 1);
+	unsigned int i;
+
+	for (i = 0; input[i] != '\0'; i++)
+	{
+		output[i] = input[i];
+	}
+	output[i] = '\0';
+	return (output);
 }
