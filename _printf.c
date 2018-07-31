@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 					store = char_arg(va_arg(plist, int));
 					break;
 				case 's':
-					store = str_arg(va_arg(plist, char *));
+					store = _fun(format[i])(va_arg(plist, char *));
 					break;
 				}
 				for (j = 0 ; store[j] != '\0' ; j++)
