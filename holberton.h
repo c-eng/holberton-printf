@@ -15,7 +15,9 @@ typedef struct arg
 int _strlen(char *s);
 char *str_arg(char *input);
 char *char_arg(char input);
+/*
 char *(*_fun(char s))(char *);
+*/
 int _printf(const char *format, ...);
 
 #endif /* HOLBERTON_H */
