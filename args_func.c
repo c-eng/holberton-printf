@@ -1,43 +1,43 @@
-#include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "holberton.h"
 
 /**
- * op_string - function with 1 argument
+ * char_arg - stringifies single character
+ * @input - character input
+ *
+ * Return: stringified character
+ */
+
+void *char_arg(char input)
+{
+	char *output = malloc(sizeof(char) * 2);
+
+	printf("input is %c\n", input);
+	output[0] = input;
+	output[1] = '\0';
+	return ((void *)output);
+}
+
+/**
+ * str_arg - passes string for _printf
  * @input: string argument
  *
- * Description: copy of string argument
- * Return: to variable with string
+ * Return: new string
  */
-char *str_arg(char *input)
+void *str_arg(char *input)
 {
-	unsigned int i;
+        unsigned int i;
         char *output = malloc(_strlen(input) + 1);
 
-	if (output == NULL)
-		return (NULL);
+        if (output == NULL)
+                return (NULL);
+        printf("input not null\n");
         for (i = 0; input[i] != '\0'; i++)
         {
+                printf("str i is %d\n", i);
                 output[i] = input[i];
         }
         output[i] = '\0';
         return (output);
-}
-
-/**
- * op_char - takes one argument
- * @input - character input
- *
- * Description: copy character to buffer
- * Return: copy of string
- */
-char *char_arg(char *input)
-{
-	printf("HELLO");
-	char *output = malloc(sizeof(char) + 1);
-	if (output == NULL)
-		return (NULL);
-	output[0] = input[0];
-	output[1] = '\0';
-	return (output);
 }

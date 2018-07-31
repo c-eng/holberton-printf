@@ -1,18 +1,17 @@
 #include <stdio.h>
 #include "holberton.h"
 /**
- * get_args_func - function pointer
+ * _fun - function pointer
  * @s: char type string
  *
  * Description: to call function arguments
  * Return: pointer to argument and function
  */
-char (*get_args_func(char s))(void *)
+void *(*_fun(char s))(void *)
 {
 	int i;
 
 	arg_t args[] = {
-		{'c', (void *)char_arg},
 		{'s', (void *)str_arg},
 		{0, NULL}
 	};
@@ -22,5 +21,5 @@ char (*get_args_func(char s))(void *)
 		if (s == args[i].a)
 			break;
 	}
-	return (args[i].f);
+	return ((void *)args[i].f);
 }

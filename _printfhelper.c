@@ -1,13 +1,17 @@
-#include "holberton.h"
+/**
+ * _strlen - returns length of str s
+ * @s: string to be measured
+ *
+ * Return: length of s
+ */
 
-// calculate length of string
 int _strlen(char *s)
 {
-	int count = 0;
+        int count = 0;
 
-	while (*(s + count) != '\0')
-	{
-		count++;
-	}
-	return (count);
+        while (*(s + count) != '\0')
+        {
+                count++;
+        }
+        return (count);
 }

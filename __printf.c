@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>
@@ -21,17 +22,30 @@ int _printf(const char *format, ...)
 	va_start(plist, format);
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%')
+		printf("i = :%d\n", i);
+		if (format[i] == '%' && argflag != 1)
 		{
 			argflag = 1;
+			printf("Flagged\n");
 		}
 		else
 		{
 			if (argflag)
 			{
-				store = get_args_func(format[i])(va_arg(plist, void *));
-
-				/* scan struct for flags and access function */
+				switch (format[i])
+				{
+				case '%':
+					printf("%% handling\n");
+					store = char_arg('%');
+					break;
+				case 'c':
+					printf("c handling\n");
+					store = char_arg(va_arg(plist, int));
+					break;
+				default:
+					printf("other handling\n");
+					store = _fun(format[i])(va_arg(plist, void *));
+				}
 				for (j = 0 ; store[j] != '\0' ; j++)
 				{
 					buffer[buffer_count] = store[j];
@@ -44,6 +58,8 @@ int _printf(const char *format, ...)
 					}
 				}
 				free(store);
+				argflag = 0;
+				printf("Unflagged\n");
 			}
 			else
 			{

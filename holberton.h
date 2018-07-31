@@ -6,17 +6,15 @@
  * @s: pointer type
  * @f: The function associated
  */
-typedef struct arg
-{
+typedef struct arg{
 	char a;
-	char (*f)(void *);
+	void (*f)();
 } arg_t;
 
-int _printf(const char *format, ...);
 int _strlen(char *s);
-char *str_arg(char *input);
-char *char_arg(char *input);
-char (*get_args_func(char s))(void *);
-
+void *str_arg(char *input);
+void *char_arg(char input);
+void *(*_fun(char s))(void *);
+int _printf(const char *format, ...);
 
 #endif /* HOLBERTON_H */
