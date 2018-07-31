@@ -2,11 +2,12 @@
 #define _HOLBERTON_H_
 
 /**
- * struct op - Struct op
- * @s: pointer type
+ * struct arg - Struct op
+ * @a: pointer type
  * @f: The function associated
  */
-typedef struct arg{
+typedef struct arg
+{
 	char a;
 	void (*f)();
 } arg_t;
