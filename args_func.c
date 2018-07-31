@@ -33,8 +33,8 @@ char *str_arg(char *input)
  */
 char *char_arg(char *input)
 {
+	printf("HELLO");
 	char *output = malloc(sizeof(char) + 1);
-
 	if (output == NULL)
 		return (NULL);
 	output[0] = input[0];

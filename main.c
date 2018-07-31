@@ -9,7 +9,9 @@
  */
 int main(void)
 {
-	char *str = "World";
-	_printf("Hello %s", str);
+	_printf("%s HELLO", "WORLD");
+	printf("\n");
+	_printf("%s HELLO2", "WORLD2");
+	printf("\n");
 	return (0);
 }

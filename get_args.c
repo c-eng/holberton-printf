@@ -1,7 +1,5 @@
-#include <stdarg.h>
 #include <stdio.h>
 #include "holberton.h"
-
 /**
  * get_args_func - function pointer
  * @s: char type string
@@ -14,14 +12,15 @@ char (*get_args_func(char s))(void *)
 	int i;
 
 	arg_t args[] = {
-		{'c', char_arg},
-		{'s', str_arg},
-		{NULL, NULL}
+		{'c', (void *)char_arg},
+		{'s', (void *)str_arg},
+		{0, NULL}
 	};
 
-	for (i = 0; args[i].arg != NULL; i++)
+	for (i = 0; args[i].a != 0; i++)
 	{
-		if (*s == *args[i].arg)
-			return (args[i].f);
+		if (s == args[i].a)
+			break;
 	}
+	return (args[i].f);
 }

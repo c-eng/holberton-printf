@@ -8,7 +8,7 @@
  */
 typedef struct arg
 {
-	char *arg;
+	char a;
 	char (*f)(void *);
 } arg_t;
 
