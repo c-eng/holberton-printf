@@ -6,9 +6,9 @@
  * @s: pointer type
  * @f: The function associated
  */
-typedef struct args
+typedef struct arg
 {
-	char *s;
+	char *arg;
 	char (*f)(void *);
 } arg_t;
 

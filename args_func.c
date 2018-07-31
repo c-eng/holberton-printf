@@ -11,9 +11,11 @@
  */
 char *str_arg(char *input)
 {
+	unsigned int i;
         char *output = malloc(_strlen(input) + 1);
-        unsigned int i;
 
+	if (output == NULL)
+		return (NULL);
         for (i = 0; input[i] != '\0'; i++)
         {
                 output[i] = input[i];
@@ -33,6 +35,8 @@ char *char_arg(char *input)
 {
 	char *output = malloc(sizeof(char) + 1);
 
+	if (output == NULL)
+		return (NULL);
 	output[0] = input[0];
 	output[1] = '\0';
 	return (output);

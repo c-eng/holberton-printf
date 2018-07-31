@@ -29,7 +29,8 @@ int _printf(const char *format, ...)
 		{
 			if (argflag)
 			{
-				if(format[i + 1] ==
+				store = get_args_func(format[i])(va_arg(plist, void *));
+			        
 				/* scan struct for flags and access function */
 				for (j = 0 ; store[j] != '\0' ; j++)
 				{

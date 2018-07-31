@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdarg.h>
 
 /**
  * get_args_func - function pointer
@@ -7,21 +8,21 @@
  * Description: to call function arguments
  * Return: pointer to argument and function
  */
-char (*get_args_func(char *s))(char)
+char (*get_args_func(char s))(void *)
 {
 	int i;
 
-	args arg_t[] = {
+	arg_t args[] = {
 		{'c', char_arg},
 		{'s', str_arg},
 		{NULL, NULL}
 	}
 
-	for (i = 0; arg_t[i].args != NULL; i++)
+	for (i = 0; args[i].arg != NULL; i++)
 	{
-		if (*s == *arg_t[i].args)
+		if (*s == *args[i].arg)
 		{
-			return (arg_t[i].f);
+			return (args[i].f);
 		}
 	}
 }
