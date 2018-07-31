@@ -32,16 +32,14 @@ int _printf(const char *format, ...)
 	unsigned int i = 0;
 	va_list plist;
 	char paramstore;
-	int argflag = 0;
-	/* char *buffer = malloc(1024); */
+	int argflag = 0, buffer_count = 0;
+	char *buffer = malloc(1024);
 
 	va_start(plist, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
-		{
 			argflag = 1;
-		}
 		else if (argflag)
 		{
 			switch(format[i])
@@ -64,7 +62,10 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			write(1, &format[i], 1);
+			buffer[buffer_count] = format[i];
+			buffer_count += 1;
+			
+			/* write(1, &format[i], 1); */
 		}
 		i++;
 	}
