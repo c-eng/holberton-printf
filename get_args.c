@@ -7,7 +7,7 @@
  * Description: to call function arguments
  * Return: pointer to argument and function
  */
-void *(*_fun(char s))(char *)
+char *(*_fun(char s))(char *)
 {
 	int i;
 
