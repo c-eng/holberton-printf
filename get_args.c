@@ -1,5 +1,6 @@
-#include "holberton.h"
 #include <stdarg.h>
+#include <stdio.h>
+#include "holberton.h"
 
 /**
  * get_args_func - function pointer
@@ -16,7 +17,7 @@ char (*get_args_func(char s))(void *)
 		{'c', char_arg},
 		{'s', str_arg},
 		{NULL, NULL}
-	}
+	};
 
 	for (i = 0; args[i].arg != NULL; i++)
 	{
