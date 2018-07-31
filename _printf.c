@@ -20,13 +20,11 @@ int _printf(const char *format, ...)
 
 	if (buffer == NULL)
 		return (NULL);
-
-	if (format == NULL)
-		return (-1);
-
 	va_start(plist, format);
 	while (format[i] != '\0')
 	{
+		if (format == NULL)
+			return (-1);
 		if (format[i] == '%' && argflag != 1)
 		{
 			argflag = 1;
