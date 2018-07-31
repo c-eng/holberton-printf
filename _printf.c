@@ -18,8 +18,6 @@ int _printf(const char *format, ...)
 	int argflag = 0, buffer_count = 0, bite_count = 0;
 	char *buffer = malloc(sizeof(char) * 1024),  *store;
 
-	if (buffer == NULL)
-		return (NULL);
 	va_start(plist, format);
 	while (format[i] != '\0')
 	{
