@@ -25,14 +25,29 @@ char *char_arg(char input)
 char *str_arg(char *input)
 {
 	unsigned int i;
-	char *output = malloc(_strlen(input) + 1);
+	char *output;
 
-	if (output == NULL)
-		return (NULL);
-	for (i = 0; input[i] != '\0'; i++)
+	if (input)
 	{
-		output[i] = input[i];
+		output = malloc(_strlen(input) + 1);
+		if (output == NULL)
+			return (NULL); /* what does printf do? */
+		for (i = 0; input[i] != '\0'; i++)
+		{
+			output[i] = input[i];
+		}
+		output[i] = '\0';
 	}
-	output[i] = '\0';
+	else
+	{
+		output = malloc(sizeof(char) * 7);
+		output[0] = '(';
+		output[1] = 'n';
+		output[2] = 'u';
+		output[3] = 'l';
+		output[4] = 'l';
+		output[5] = ')';
+		output[6] = '\0';
+	}
 	return (output);
 }
