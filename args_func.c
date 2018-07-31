@@ -7,13 +7,13 @@
  *
  * Return: stringified character
  */
-void *char_arg(char input)
+char *char_arg(char input)
 {
 	char *output = malloc(sizeof(char) * 2);
 
 	output[0] = input;
 	output[1] = '\0';
-	return ((void *)output);
+	return (output);
 }
 
 /**
@@ -22,7 +22,7 @@ void *char_arg(char input)
  *
  * Return: new string
  */
-void *str_arg(char *input)
+char *str_arg(char *input)
 {
 	unsigned int i;
 	char *output = malloc(_strlen(input) + 1);

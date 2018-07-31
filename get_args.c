@@ -7,12 +7,12 @@
  * Description: to call function arguments
  * Return: pointer to argument and function
  */
-void *(*_fun(char s))(void *)
+void *(*_fun(char s))(char *)
 {
 	int i;
 
 	arg_t args[] = {
-		{'s', (void *)str_arg},
+		{'s', str_arg},
 		{0, NULL}
 	};
 
@@ -21,5 +21,5 @@ void *(*_fun(char s))(void *)
 		if (s == args[i].a)
 			break;
 	}
-	return ((void *)args[i].f);
+	return (args[i].f);
 }
