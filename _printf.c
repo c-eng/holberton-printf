@@ -32,16 +32,23 @@ int _printf(const char *format, ...)
 				switch (format[i])
 				{
 				case '%':
-					store = char_arg('%');
+					/* store = char_arg('%'); */
+					buffer[buffer_count] = '%';
+					buffer_count += 1;
 					break;
 				case 'c':
-					store = char_arg(va_arg(plist, int));
+					/* store = char_arg(va_arg(plist, int)); */
+					buffer[buffer_count] =
+						va_arg(plist, int);
+					buffer_count += 1;
 					break;
 				case 's':
 					store = str_arg(va_arg(plist, char *));
 					break;
 				}
-				for (j = 0 ; store[j] != '\0' ; j++)
+				for (j = 0 ; store[j] != '\0' &&
+					     format[i] != 'c' &&
+					     format[i] != '%'; j++)
 				{
 					buffer[buffer_count] = store[j];
 					buffer_count += 1;
@@ -52,8 +59,9 @@ int _printf(const char *format, ...)
 						buffer_count = 0;
 					}
 				}
-				free(store);
 				argflag = 0;
+				if (format[i] != 'c' && format[i] != '%')
+					free(store);
 			}
 			else
 			{
