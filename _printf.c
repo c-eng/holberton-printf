@@ -37,9 +37,9 @@ int _printf(const char *format, ...)
 				case 'c':
 					store = char_arg(va_arg(plist, int));
 					break;
-				default:
-					store = _fun(format[i])
-						(va_arg(plist, void *));
+				case 's':
+					store = str_arg(va_arg(plist, char *));
+					break;
 				}
 				for (j = 0 ; store[j] != '\0' ; j++)
 				{
