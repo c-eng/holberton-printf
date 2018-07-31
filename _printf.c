@@ -13,7 +13,7 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, j = 0, k = 0;
+	unsigned int i = 0, j = 0;
 	va_list plist;
 	int argflag = 0, buffer_count = 0, bite_count = 0;
 	char *buffer = malloc(sizeof(char) * 1024),  *store;
