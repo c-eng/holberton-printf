@@ -9,11 +9,7 @@
  */
 int main(void)
 {
-	int len;
-	int len2;
-	unsigned int ui;
-	void *addr;
-
-	
+	char *str = "World";
+	_printf("Hello %s", str);
 	return (0);
 }

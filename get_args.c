@@ -22,8 +22,6 @@ char (*get_args_func(char s))(void *)
 	for (i = 0; args[i].arg != NULL; i++)
 	{
 		if (*s == *args[i].arg)
-		{
 			return (args[i].f);
-		}
 	}
 }
