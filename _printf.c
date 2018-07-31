@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 	va_start(plist, format);
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%' && argflag != 1)
+		if (format[i] == '%' && format[i + 1] != '%' && argflag != 1)
 		{
 			argflag = 1;
 		}
@@ -32,12 +32,10 @@ int _printf(const char *format, ...)
 				switch (format[i])
 				{
 				case '%':
-					/* store = char_arg('%'); */
 					buffer[buffer_count] = '%';
 					buffer_count += 1;
 					break;
 				case 'c':
-					/* store = char_arg(va_arg(plist, int)); */
 					buffer[buffer_count] =
 						va_arg(plist, int);
 					buffer_count += 1;
@@ -46,9 +44,7 @@ int _printf(const char *format, ...)
 					store = str_arg(va_arg(plist, char *));
 					break;
 				}
-				for (j = 0 ; store[j] != '\0' &&
-					     format[i] != 'c' &&
-					     format[i] != '%'; j++)
+				for (j = 0 ; store[j] != '\0'; j++)
 				{
 					buffer[buffer_count] = store[j];
 					buffer_count += 1;

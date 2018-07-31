@@ -9,6 +9,7 @@
  */
 int main(void)
 {
+	char str = '\0';
 	_printf("Hello %s", "world");
 	printf("\n");
 
@@ -18,13 +19,6 @@ int main(void)
 	_printf("%%");
         printf("\n");
 
-	_printf("\0");
-	printf("\n");
-
-	_printf("This checks the null: %c", '\0');
-	printf("\n");
-
-	_printf("NULL");
-	printf("\n");
+	printf("%%\n");
 	return (0);
 }

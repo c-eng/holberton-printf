@@ -31,7 +31,7 @@ char *str_arg(char *input)
 	{
 		output = malloc(_strlen(input) + 1);
 		if (output == NULL)
-			return (NULL); /* what does printf do? */
+			return (NULL);
 		for (i = 0; input[i] != '\0'; i++)
 		{
 			output[i] = input[i];
