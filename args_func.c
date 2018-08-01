@@ -121,7 +121,6 @@ char *str_rev(char *input)
 		count++;
 		len--;
 	}
-	len += '\0';
 	return (buffer);
 }
 /**
@@ -134,9 +133,11 @@ char *str_rev(char *input)
 char *rot13(char *str)
 {
 	char *input, *output;
-	int count, count2;
+	unsigned int count, count2;
 	char *buffer;
 
+	if (str == NULL)
+		return (-1);
 	buffer = malloc(_strlen(str) + 1);
 	if (buffer == NULL)
 		exit(-1);
