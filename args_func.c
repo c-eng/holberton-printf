@@ -136,8 +136,6 @@ char *rot13(char *str)
 	unsigned int count, count2;
 	char *buffer;
 
-	if (str == NULL)
-		return (-1);
 	buffer = malloc(_strlen(str) + 1);
 	if (buffer == NULL)
 		exit(-1);
@@ -159,7 +157,5 @@ char *rot13(char *str)
 		}
 		count++;
 	}
-	count++;
-	buffer[count] = '\0';
 	return (buffer);
 }
