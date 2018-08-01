@@ -152,7 +152,8 @@ char *rot13(char *str)
 			{
 				buffer[count] = output[count2];
 				break;
-			} else
+			}
+			if (str[count] != input[count2])
 			{
 				buffer[count] = str[count];
 				break;
