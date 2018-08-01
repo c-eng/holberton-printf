@@ -53,7 +53,8 @@ int _printf(const char *format, ...)
 					buffer_count += 1;
 					store = char_arg(format[i]);
 				}
-				if (store[0] == '\0' && store[1] == '\0')
+				if (store[0] == '\0' && store[1] == '\0' &&
+				    format[i] == 'c')
 				{
 					buffer[buffer_count] = '\0';
 					buffer_count += 1;
