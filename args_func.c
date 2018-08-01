@@ -152,6 +152,10 @@ char *rot13(char *str)
 			{
 				buffer[count] = output[count2];
 				break;
+			} else
+			{
+				buffer[count] = str[count];
+				break;
 			}
 			count2++;
 		}
