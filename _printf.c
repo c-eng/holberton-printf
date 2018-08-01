@@ -1,5 +1,4 @@
 #include <stdarg.h>
-#include <stddef.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include "holberton.h"
@@ -94,6 +93,8 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
+	if (argflag)
+		return (-1);
 	write(1, buffer, buffer_count);
 	free(buffer);
 	va_end(plist);
