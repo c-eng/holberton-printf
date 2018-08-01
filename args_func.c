@@ -146,14 +146,14 @@ char *rot13(char *str)
 		count2 = 0;
 		while (input[count2] != '\0')
 		{
-			if (str[count] == input[count2])
+			if (str[count] != input[count2])
 			{
-				buffer[count] = output[count2];
+				buffer[count] = str[count];
 				break;
 			}
 			else
 			{
-				buffer[count] = str[count];
+				buffer[count] = output[count2];
 				break;
 			}
 			count2++;
