@@ -14,4 +14,4 @@ int _printf(const char *format, ...);
 char *str_rev(char *input);
 char *rot13(char *str);
 
-#endif /* HOLBERTON_H */
+#endif
