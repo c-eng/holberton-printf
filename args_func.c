@@ -97,6 +97,13 @@ char *int_arg(int input)
 	return (output);
 }
 
+/**
+ * str_rev - function with one argument
+ * @input: string input
+ *
+ * Description: reverse a string and add to buffer
+ * Return: buffer of reverse string
+ */
 char *str_rev(char *input)
 {
 	char *buffer;
@@ -117,7 +124,13 @@ char *str_rev(char *input)
 	len += '\0';
 	return (buffer);
 }
-
+/**
+ * rot13 - function with one argument
+ * @str: string input
+ *
+ * Description: rot13 conversion
+ * Return: memory buffer
+ */
 char *rot13(char *str)
 {
 	char *input, *output;
