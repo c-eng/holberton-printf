@@ -31,19 +31,33 @@ specifiers and their meanings are:
 
 .TP
 .B c
-If no \fBl\fR modifier is present, the int argument is converted to an unsigned
+The int argument is converted to an unsigned
 char, and the resulting character is written.
 
 .TP
 .B s
-If no l modifier is present: The const char * argument is expected to be a
-pointer to an array of character type (pointer to a string). Characters from
-the array are written up to (but not including) a terminating null byte ('\0')
+The const char * argument is expected to be a pointer to an array of character
+type (pointer to a string). Characters from the array are written up to (but
+not including) a terminating null byte ('\0').
 
 .TP
 .B %
 A '%' is written. No argument is converted. The complete conversion
 specification is '%%'.
+
+.TP
+.B i, d
+The int argument is converted to signed decimal notation.
+
+.TP
+.B r
+The char * argument printed in reverse up to (but no including) a
+terminating null byte.
+
+.TP
+.B R
+The char * argument printed in rot13 up to (but not including) a terminating
+null byte.
 
 .SH SEE ALSO
 \fIprintf\fR(1), \fIprintf\fR(3)
