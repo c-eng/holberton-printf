@@ -53,6 +53,18 @@ int _printf(const char *format, ...)
 					buffer_count += 1;
 					store = char_arg(format[i]);
 				}
+				if (store[0] == '\0' && store[1] == '\0')
+				{
+					buffer[buffer_count] = '\0';
+					buffer_count += 1;
+					if (buffer_count == 1024)
+					{
+						write(1, buffer, buffer_count);
+						bite_count += buffer_count;
+						buffer_count = 0;
+					}
+
+				}
 				for (j = 0 ; store[j] != '\0' ; j++)
 				{
 					buffer[buffer_count] = store[j];
