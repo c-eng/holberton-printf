@@ -13,6 +13,7 @@ typedef struct arg
 } arg_t;
 
 int _strlen(char *s);
+char *int_arg(int input);
 char *str_arg(char *input);
 char *char_arg(char input);
 int _printf(const char *format, ...);

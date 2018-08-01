@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "holberton.h"
 
@@ -11,6 +12,8 @@ char *char_arg(char input)
 {
 	char *output = malloc(sizeof(char) * 2);
 
+	if (output == NULL)
+		exit(-1);
 	output[0] = input;
 	output[1] = '\0';
 	return (output);
@@ -31,7 +34,7 @@ char *str_arg(char *input)
 	{
 		output = malloc(_strlen(input) + 1);
 		if (output == NULL)
-			return (NULL);
+			exit(-1);
 		for (i = 0; input[i] != '\0'; i++)
 		{
 			output[i] = input[i];
@@ -49,5 +52,47 @@ char *str_arg(char *input)
 		output[5] = ')';
 		output[6] = '\0';
 	}
+	return (output);
+}
+
+/**
+ * int_arg - integer handling
+ * @input: Input int
+ *
+ * Return: stringified int
+ */
+
+char *int_arg(int input)
+{
+	char *output;
+	int len = 1, store = input, store2 = input;
+
+	if (input == 0)
+	{
+		output = malloc(sizeof(char) * 2);
+		output[0] = '0';
+		output[1] = '\0';
+		return (output);
+	}
+	if (input < 0)
+		len += 1;
+	for ( ; store /= 10 ; len++)
+		;
+	output = malloc(sizeof(char) * (len + 1));
+	if (output == NULL)
+		exit(-1);
+	output[len] = '\0';
+	len--;
+	while (store2)
+	{
+		if (store2 < 0)
+			output[len] = ((store2 % 10) * -1) + '0';
+		else
+			output[len] = (store2 % 10) + '0';
+		store2 /= 10;
+		len--;
+	}
+	if (input < 0)
+		output[0] = '-';
 	return (output);
 }

@@ -2,7 +2,6 @@
 #include <stddef.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -24,7 +23,6 @@ int _printf(const char *format, ...)
 	va_start(plist, format);
 	while (format[i] != '\0')
 	{
-		printf("index : %i\n", i);
 		if (format[i] == '%' && argflag != 1)
 		{
 			argflag = 1;
@@ -43,6 +41,10 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					store = str_arg(va_arg(plist, char *));
+					break;
+				case 'd':
+				case 'i':
+					store = int_arg(va_arg(plist, int));
 					break;
 				case ' ':
 					return (-1);
@@ -83,8 +85,5 @@ int _printf(const char *format, ...)
 	free(buffer);
 	va_end(plist);
 	bite_count += buffer_count;
-
-	printf("\n%i\n", bite_count);
-	printf("%i\n", buffer_count);
-	return (buffer_count);
+	return (bite_count);
 }
