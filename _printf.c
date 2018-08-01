@@ -46,6 +46,12 @@ int _printf(const char *format, ...)
 				case 'i':
 					store = int_arg(va_arg(plist, int));
 					break;
+				case 'r':
+					store = str_rev(va_arg(plist, char *));
+					break;
+				case 'R':
+					store = rot13(va_arg(plist, char *));
+					break;
 				case ' ':
 					return (-1);
 				default:

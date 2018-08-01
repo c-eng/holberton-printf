@@ -96,3 +96,54 @@ char *int_arg(int input)
 		output[0] = '-';
 	return (output);
 }
+
+char *str_rev(char *input)
+{
+	char *buffer;
+	unsigned int len, count;
+
+	len = _strlen(input);
+	buffer = malloc(_strlen(input) + 1);
+	if (buffer == NULL)
+		exit(-1);
+
+	count = 0;
+	while (input[count] != '\0')
+	{
+		buffer[count] = input[len - 1];
+		count++;
+		len--;
+	}
+	len += '\0';
+	return (buffer);
+}
+
+char *rot13(char *str)
+{
+	char *input, *output;
+	int count, count2;
+	char *buffer;
+
+	buffer = malloc(_strlen(str) + 1);
+	if (buffer == NULL)
+		exit(-1);
+	input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	count = 0;
+	while (str[count] != '\0')
+	{
+		count2 = 0;
+		while (input[count2] != '\0')
+		{
+			if (str[count] == input[count2])
+			{
+				buffer[count] = output[count2];
+				break;
+			}
+			count2++;
+		}
+		count++;
+	}
+	return (buffer);
+}
