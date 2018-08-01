@@ -158,5 +158,7 @@ char *rot13(char *str)
 		}
 		count++;
 	}
+	count++;
+	buffer[count] = '\0';
 	return (buffer);
 }
