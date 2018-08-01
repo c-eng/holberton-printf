@@ -1,5 +1,4 @@
 #include <stdarg.h>
-#include <stddef.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include "holberton.h"
@@ -59,6 +58,19 @@ int _printf(const char *format, ...)
 					buffer_count += 1;
 					store = char_arg(format[i]);
 				}
+				if (store[0] == '\0' && store[1] == '\0' &&
+				    format[i] == 'c')
+				{
+					buffer[buffer_count] = '\0';
+					buffer_count += 1;
+					if (buffer_count == 1024)
+					{
+						write(1, buffer, buffer_count);
+						bite_count += buffer_count;
+						buffer_count = 0;
+					}
+
+				}
 				for (j = 0 ; store[j] != '\0' ; j++)
 				{
 					buffer[buffer_count] = store[j];
@@ -87,6 +99,8 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
+	if (argflag)
+		return (-1);
 	write(1, buffer, buffer_count);
 	free(buffer);
 	va_end(plist);
