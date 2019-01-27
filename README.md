@@ -2,10 +2,13 @@
 ---
 ## Description
 
-This project in the Low Level Programming series is about:
+This special project in the Low Level Programming series is about:
 * Understanding how the printf function work
 * Breakdown of different argument types
 * Create our own printf
+
+## Objective
+The purpose of this project is to really understand how the printf function really work by creating our own while also understanding another important concept on variadic arguments and incorporating it into our printf function.
 
 ## Files
 ---
