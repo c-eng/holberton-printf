@@ -33,5 +33,5 @@ gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
 All files is formatted Betty style and checked using betty-style.pl and betty-doc.pl
 
 ## Author
-Cameron Eng
-Heindrick Cheung
+* Cameron Eng
+* Heindrick Cheung
